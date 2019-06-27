@@ -27,7 +27,7 @@
         question = document.querySelector('[data-question]').getAttribute('question');
         answer = document.querySelector('[data-answer]').value;
 
-        axios.get(`/test?question=${question}&answer=${answer}`)
+        axios.get(`/api?question=${question}&answer=${answer}`)
           .then((response) => {
             console.log(response);
 
