@@ -10,9 +10,14 @@ const secret = require('../controllers/secret');
 // Routes
 router.get('/', index);
 router.get('/api', checkAnswer);
+
 for (let i = 0; i < 10; i++) {
   router.get(`/secret_${i}`, (req, res, next) => secret(req, res, next, i));
 }
+
+router.get('/secret_*', (req, res, next) => {
+  res.redirect('/');
+})
 
 // Help Routes
 router.get('/set-cookie', (req, res, next) => {

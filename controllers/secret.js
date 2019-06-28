@@ -3,7 +3,7 @@ const data = require('../data/secrets.json');
 function secret(req, res, next, index) {
   const secrets = data.secrets;
 
-  if (index > secrets.length) {
+  if (secrets.length < index) {
     res.send('acesso negado');
   } else if (index <= parseInt(req.cookies['secret'])) {
       res.render('secret', {
