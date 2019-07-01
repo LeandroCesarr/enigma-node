@@ -1,5 +1,9 @@
-function getFullUrl(req) {
-  return req.protocol + '://' + req.get('host') + req.originalUrl;
+function getFullUrl(req, type) {
+  if (type) {
+    return req.protocol + '://' + req.get('host') + req.originalUrl;
+  }
+
+  return req.protocol + '://' + req.get('host');
 }
 
 module.exports = getFullUrl;

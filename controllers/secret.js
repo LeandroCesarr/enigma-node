@@ -16,7 +16,8 @@ function secret(req, res, next, index) {
           title: "Title secret",
           content: "content",
           image: "laranjo.jpeg",
-          url: getURL(req)
+          baseurl: getURL(req),
+          url: getURL(req, 'full')
         }
       });
     } else {

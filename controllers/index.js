@@ -13,6 +13,7 @@ function index(req, res, next) {
       title: "Title",
       content: "content",
       image: "laranjo.jpeg",
+      baseurl: getURL(req), 
       url: getURL(req)
     }
   });
