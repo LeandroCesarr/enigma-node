@@ -18,7 +18,7 @@ for (let i = 0; i < 10; i++) {
 
 // Help Routes
 router.get('/set-cookie', (req, res, next) => {
-  res.cookie('secret', parseInt(req.query.id));
+  res.cookie('secret', parseInt(req.query.id), {expire: (3,154e+10 + Date.now())});
   res.send(`Cookie setado ${req.query.id}`)
 })
 
