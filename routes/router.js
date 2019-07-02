@@ -12,13 +12,13 @@ const redirectIndex = require('../controllers/redirect-index');
 router.get('/', index);
 router.get('/api', checkAnswer);
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 3; i++) {
   router.get(`/secret_${i}`, (req, res, next) => secret(req, res, next, i));
 }
 
 // Help Routes
 router.get('/set-cookie', (req, res, next) => {
-  res.cookie('secret', parseInt(req.query.id), {expire: (3,154e+10 + Date.now())});
+  res.cookie('secret', parseInt(req.query.id), {maxAge: Date.now()});
   res.send(`Cookie setado ${req.query.id}`)
 })
 

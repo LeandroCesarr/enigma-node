@@ -12,6 +12,8 @@ function secret(req, res, next, index) {
         image: secrets[index].image,
         alt: secrets[index].alt,
         legend: secrets[index].legend,
+        question: req.originalUrl,
+        msg: secrets[index].msg,
         share: {
           title: "Title secret",
           content: "content",

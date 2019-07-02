@@ -3,7 +3,7 @@ const getURL = require('../config/get-full-url');
 
 function index(req, res, next) {
   if (!req.cookies['secret']) {
-    res.cookie('secret', 0, {expire: (3,154e+10 + Date.now())});
+    res.cookie('secret', 0, {maxAge: Date.now()});
   }
   
   res.render('index', {
