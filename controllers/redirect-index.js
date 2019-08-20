@@ -1,5 +1,3 @@
-function redirectIndex(req, res, next) {
-  res.redirect('/');
-}
+const redirectIndex = (req, res, next) => res.redirect('/');
 
 module.exports = redirectIndex;

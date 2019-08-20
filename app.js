@@ -1,22 +1,27 @@
-const express = require('express');
-const bodyParser = require('body-parser');
 const normalizaPort = require('./config/port');
-const cookieParser = require('cookie-parser');  
-const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const notifier = require('node-notifier');
+const nunjucks = require('nunjucks');
+const express = require('express');
 
 const app = express();
 const port = normalizaPort(process.env.PORT || '4000');
 
-app.set("views", path.join(__dirname, "src/views"));
-app.use('/public', express.static(__dirname + '/public'));
+// template engine
+nunjucks.configure('src/views', {
+  autoescape: true,
+  express   : app
+});
 
-app.set('view engine', 'pug');
+app.use('/public', express.static(__dirname + '/public'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(require('./routes/router'));
 
-
-
 app.listen(port, () => {
-  console.log(`app listening on port ${port}`);
+  notifier.notify({
+    title: 'Enimga Node',
+    message: 'Build succesfull'
+  });
 })

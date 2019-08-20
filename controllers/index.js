@@ -1,19 +1,18 @@
-const path = require('path');
 const getURL = require('../config/get-full-url');
 
-function index(req, res, next) {
+const index = (req, res, next) => {
   if (!req.cookies['secret']) {
     res.cookie('secret', 0, {maxAge: Date.now()});
   }
-  
-  res.render('index', {
+
+  res.render('index.html', {
     user: '[Pagina inicial] Vamo sair no soco e na porrada ?',
-    title: 'Test',
+    title: 'Ginaldim',
     share: {
       title: "Title",
       content: "content",
       image: "laranjo.jpeg",
-      baseurl: getURL(req), 
+      baseurl: getURL(req),
       url: getURL(req)
     }
   });
