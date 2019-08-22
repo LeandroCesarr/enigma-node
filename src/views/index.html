@@ -1,7 +1,10 @@
 {% extends "layout/index.html" %}
 
 {% block content %}
-  <h1>{{ user }}</h1>
-  <img src="/public/images/laranjo.jpeg" alt="">
-  <a href="{{ share.baseurl }}/secret_0">comece esta merda</a>
+  <section class="l-index">
+    <div class="l-index__holder">
+      <h1 class="l-index__title">Admirável<br /> mundo novo</h1>
+      <a href="/secret/0" class="l-index__link">Começar</a>
+    </div>
+  </section>
 {% endblock %}

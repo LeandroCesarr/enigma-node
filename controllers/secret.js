@@ -1,8 +1,9 @@
 const data = require('../data/secrets.json');
 const getURL = require('../config/get-full-url');
 
-const secret = (req, res, next, index) => {
+const secret = (req, res, next) => {
   const secrets = data.secrets;
+  const index = req.params.id;
 
   if (secrets.length < index) {
     res.send('acesso negado');
@@ -13,7 +14,7 @@ const secret = (req, res, next, index) => {
         image: secret.image,
         alt: secret.alt,
         legend: secret.legend,
-        question: req.originalUrl,
+        question: index,
         msg: secret.msg,
         share: {
           title: "Title secret",

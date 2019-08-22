@@ -12,9 +12,7 @@ const redirectIndex = require('../controllers/redirect-index');
 router.get('/', index);
 router.get('/api', checkAnswer);
 
-for (let i = 0; i < 3; i++) {
-  router.get(`/secret_${i}`, (req, res, next) => secret(req, res, next, i));
-}
+router.get('/secret/:id', secret);
 
 // Help Routes
 router.get('/set-cookie', (req, res, next) => {
@@ -24,6 +22,5 @@ router.get('/set-cookie', (req, res, next) => {
 
 // Redirect Routes
 router.get('/*', redirectIndex);
-router.get('/secret_*', redirectIndex);
 
 module.exports = router;

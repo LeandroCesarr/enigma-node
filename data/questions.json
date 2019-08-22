@@ -1,5 +1,7 @@
 {
-  "secret_0": "a7x",
-  "secret_1": "everlong",
-  "secret_2": "socao"
+  "questions": [
+    "a7x",
+    "everlong",
+    "socao"
+  ]
 }

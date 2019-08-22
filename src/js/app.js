@@ -11,9 +11,7 @@ import Cookie from 'js-cookie';
       let cookieData = question.replace('/secret_', '');
        
       cookieData = parseInt(cookieData);
-      question = question.replace(/\//, '');
-
-
+      
       axios.get(`/api?question=${question}&answer=${data}`)
         .then((response) => {
           console.log(response);
