@@ -2250,7 +2250,6 @@ __webpack_require__.r(__webpack_exports__);
       var question = button.getAttribute('question');
       var cookieData = question.replace('/secret_', '');
       cookieData = parseInt(cookieData);
-      question = question.replace(/\//, '');
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api?question=".concat(question, "&answer=").concat(data)).then(function (response) {
         console.log(response);
 
@@ -2287,8 +2286,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/leandro/Documentos/Repositories/enigma-node/src/js/app.js */"./src/js/app.js");
-module.exports = __webpack_require__(/*! /home/leandro/Documentos/Repositories/enigma-node/src/scss/app.scss */"./src/scss/app.scss");
+__webpack_require__(/*! C:\Users\Novahaus\Desktop\Repositorios\enigma-node\src\js\app.js */"./src/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Novahaus\Desktop\Repositorios\enigma-node\src\scss\app.scss */"./src/scss/app.scss");
 
 
 /***/ })

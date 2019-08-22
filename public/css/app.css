@@ -4,6 +4,15 @@ body {
   padding: 0;
 }
 
+*,
+*::before,
+*::after {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
 .l-index {
   background-color: #000;
   font-family: "Montserrat";
@@ -17,6 +26,7 @@ body {
           flex-direction: column;
   -webkit-box-pack: center;
           justify-content: center;
+  padding: 0 10px;
 }
 
 .l-index__title {
@@ -44,5 +54,15 @@ body {
 .l-index__link:hover {
   background-color: #FFF;
   color: #000;
+}
+
+@media only screen and (max-width: 767px) {
+  .l-index__title {
+    font-size: 40px;
+  }
+
+  .l-index__link {
+    font-size: 18px;
+  }
 }
 
