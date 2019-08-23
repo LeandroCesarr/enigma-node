@@ -1,9 +1,12 @@
-.l-index {
+.l-page {
   background-color: $color-black;
+}
+
+.l-index {
   font-family: "Montserrat";
   text-align: center;
   color: $color-white;
-  height: 100vh;
+  margin-top: 15vw;
   display: flex;
   flex-direction: column;
   justify-content: center;

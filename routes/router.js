@@ -3,16 +3,16 @@ const router = express.Router();
 
 // Controllers
 const index = require('../controllers/index');
-const checkAnswer = require('../controllers/checkAnswer');
-const secret = require('../controllers/secret');
+const secret = require('../controllers/secretController');
 const redirectIndex = require('../controllers/redirect-index');
 
 
 // Routes
 router.get('/', index);
-router.get('/api', checkAnswer);
+router.get('/api', secret.check);
 
-router.get('/secret/:id', secret);
+router.get('/secret/:id', secret.index);
+router.post('/secret/:id', secret.create);
 
 // Help Routes
 router.get('/set-cookie', (req, res, next) => {

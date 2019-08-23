@@ -13,19 +13,18 @@ body {
   box-sizing: border-box;
 }
 
-.l-index {
+.l-page {
   background-color: #000;
+}
+
+.l-index {
   font-family: "Montserrat";
   text-align: center;
   color: #FFF;
-  height: 100vh;
-  display: -webkit-box;
+  margin-top: 15vw;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
   padding: 0 10px;
 }
 
@@ -47,7 +46,6 @@ body {
   font-size: 26px;
   padding: 20px;
   border: 1px solid #FFF;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
