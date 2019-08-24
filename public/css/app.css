@@ -22,9 +22,13 @@ body {
   text-align: center;
   color: #FFF;
   margin-top: 15vw;
+  display: -webkit-box;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
   padding: 0 10px;
 }
 
@@ -46,6 +50,7 @@ body {
   font-size: 26px;
   padding: 20px;
   border: 1px solid #FFF;
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
@@ -62,5 +67,14 @@ body {
   .l-index__link {
     font-size: 18px;
   }
+}
+
+.l-secret__image-holder {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.l-secret__image-holder img {
+  width: 100%;
 }
 

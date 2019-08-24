@@ -1,26 +1,28 @@
 const express = require('express');
+const multer = require('multer');
+const uploadConfig = require('../config/upload');
+
 const router = express.Router();
+const upload = multer(uploadConfig);
 
 // Controllers
-const index = require('../controllers/index');
+const index = require('../controllers/indexController');
 const secret = require('../controllers/secretController');
-const redirectIndex = require('../controllers/redirect-index');
 
 
 // Routes
 router.get('/', index);
-router.get('/api', secret.check);
-
 router.get('/secret/:id', secret.index);
-router.post('/secret/:id', secret.create);
+router.get('/secret/api/check', secret.check );
+router.post('/secret/api/create', upload.single('image'), secret.create);
 
 // Help Routes
-router.get('/set-cookie', (req, res, next) => {
-  res.cookie('secret', parseInt(req.query.id), {maxAge: Date.now()});
-  res.send(`Cookie setado ${req.query.id}`)
+router.get('/set/:id', (req, res, next) => {
+  res.cookie('secret', parseInt(req.params.id), {maxAge: Date.now()});
+  res.send(`Cookie setado ${req.params.id}`)
 })
 
 // Redirect Routes
-router.get('/*', redirectIndex);
+router.get('/*', index);
 
 module.exports = router;

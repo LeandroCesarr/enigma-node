@@ -1,48 +1,48 @@
-const data = require('../data/secrets.json');
 const getURL = require('../config/get-full-url');
-const { questions } = require('../data/questions.json');
+const Secret = require('../models/Secret');
 
 module.exports = {
-  index(req, res, next) {
-    const secrets = data.secrets;
+  async index(req, res, next) {
     const index = req.params.id;
 
-    if (secrets.length < index) {
-      res.send('acesso negado');
-    } else if (index <= parseInt(req.cookies['secret'])) {
-        const secret = secrets[index];
-        res.render('secret.html', {
-          title: secret.title,
-          image: secret.image,
-          alt: secret.alt,
-          legend: secret.legend,
-          question: index,
-          msg: secret.msg,
-          share: {
-            title: "Title secret",
-            content: "content",
-            image: "laranjo.jpeg",
-            baseurl: getURL(req),
-            url: getURL(req, 'full')
-          }
-        });
-      } else {
-        res.send('acesso negado')
+    if (index <= parseInt(req.cookies['secret'])) {
+      try {
+        const secretFinded = await Secret.findOne({ id: index });
+        res.render('secret.html', { secretFinded });
+      } catch (error) {
+        res.send(error);
       }
-  },
-
-  check(req, res, next) {
-    const question = req.query.question;
-    const answer = req.query.answer;
-    const findAnswer = () => {
-      if (questions[question] === answer) return true;
-      return false;
+    } else {
+      next();
     }
 
-    res.send({ "result": findAnswer() });
   },
 
-  create() {
+  async check(req, res) {
+    const question = req.query.id;
+    const answer = req.query.answer;
+    let aceppt = false;
+    
+    try {
+      const secretFinded = await Secret.findOne({ id: question });
 
+      if (secretFinded.answer === answer) aceppt = true;
+      res.send({ "result": aceppt });
+
+    } catch (error) {
+      res.send(error);
+    }
+  },
+
+  async create(req, res) {
+    const { id, legend, answer } = req.body;
+    const { filename: image } = req.file;
+
+    try {
+      const create = await Secret.create({ id, legend, image, answer });
+      res.send({ create });
+    } catch (error) {
+      res.send(error);
+    }
   }
 };
