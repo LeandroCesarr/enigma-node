@@ -7,7 +7,6 @@ const nunjucks = require('nunjucks');
 const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
-// const cors = require('cors');
 
 const app = express();
 const port = normalizaPort(process.env.PORT || '4000');
@@ -19,10 +18,9 @@ nunjucks.configure('src/views', {
 
 app.use('/public', express.static(path.resolve(__dirname + '/public')));
 app.use('/uploads', express.static(path.resolve(__dirname + '/uploads')));
+app.use(cookieParser());
 app.use(require('./routes/router'));
 app.use(bodyParser.json());
-app.use(cookieParser());
-// app.use(cors());
 database.init();
 dotenv.config();
 
