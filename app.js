@@ -11,6 +11,7 @@ const path = require('path');
 const app = express();
 const port = normalizaPort(process.env.PORT || '4000');
 
+// template engine
 nunjucks.configure('src/views', {
   autoescape: true,
   express   : app
@@ -19,8 +20,8 @@ nunjucks.configure('src/views', {
 app.use('/public', express.static(path.resolve(__dirname + '/public')));
 app.use('/uploads', express.static(path.resolve(__dirname + '/uploads')));
 app.use(cookieParser());
-app.use(require('./routes/router'));
 app.use(bodyParser.json());
+app.use(require('./routes/router'));
 database.init();
 dotenv.config();
 
