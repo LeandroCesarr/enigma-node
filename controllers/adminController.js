@@ -1,4 +1,4 @@
-const env = require('../config/env'); 
+const env = require('../config/env');
 
 module.exports = {
   index(req, res, next) {
@@ -18,10 +18,9 @@ module.exports = {
   },
 
   login(req, res, next) {
-    const user = req.params.username;
-    const psw = req.params.password;
+    const { username, password } = req.body;
 
-    if ((user === env('ADMIN_USER')) && (psw === env('ADMIN_PASSWORD'))) {
+    if ((username === env('ADMIN_USER')) && (password === env('ADMIN_PASSWORD'))) {
       req.session.user = "Admin";
       req.session.admin = true;
       req.session.save();

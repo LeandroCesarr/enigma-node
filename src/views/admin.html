@@ -1,9 +1,18 @@
 {% extends "layout/index.html" %}
 
 {% block content %}
-  <form action="/admin" method="POST">
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <button type="submit">Enviar</button>
-  </form>
+  <div class="s-login">
+    <h1 class="s-login__title">Admiravel Mundo Novo</h1>
+    <form action="/admin/login" method="POST" class="s-login__form" data-auth>
+      <div class="s-login__input">
+        <label for="username" class="s-login__label">Username</label>
+        <input type="text" name="username" class="s-login__user">
+      </div>
+      <div class="s-login__input">
+        <label for="password" class="s-login__label">Passord</label>
+        <input type="password" name="password" class="s-login__psw">
+      </div>
+      <button type="submit" class="o-btn">Enviar</button>
+    </form>
+  </div>
 {% endblock %}

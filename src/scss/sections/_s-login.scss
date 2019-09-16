@@ -1,0 +1,27 @@
+.s-login {
+  max-width: 400px;
+  margin: 30vw auto 0;
+  padding: 20px;
+  background-color: $color-white;
+  border-radius: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.s-login__title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.s-login__input {
+  margin-bottom: 10px;
+
+  input {
+    width: 100%;
+    padding: 6px;
+  }
+}
+
+.s-login__label {
+  display: block;
+  margin-bottom: 5px;
+}

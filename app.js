@@ -23,11 +23,11 @@ app.use('/public', express.static(path.resolve(__dirname + '/public')));
 app.use('/uploads', express.static(path.resolve(__dirname + '/uploads')));
 app.use(session({ secret: env('SESSION_ID'), resave: true, saveUninitialized: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(require('./routes/router'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 database.init();
 dotenv.config();
+app.use(require('./routes/router'));
 
 app.listen(port, () => {
   notifier.notify({
