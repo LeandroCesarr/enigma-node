@@ -8,6 +8,7 @@ const upload = multer(uploadConfig);
 // Controllers
 const index = require('../controllers/indexController');
 const secret = require('../controllers/secretController');
+const admin = require('../controllers/adminController');
 
 
 // Routes
@@ -15,6 +16,10 @@ router.get('/', index);
 router.get('/secret/:id', secret.index);
 router.get('/secret/api/check', secret.check );
 router.post('/secret/api/create', upload.single('image'), secret.create);
+router.get('/admin/dasboard', admin.auth, admin.dashboard);
+router.get('/admin', admin.index);
+router.post('/admin/login', admin.login);
+router.post('/admin/logout', admin.logout);
 
 // Help Routes
 router.get('/set/:id', (req, res, next) => {

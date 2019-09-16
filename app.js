@@ -3,7 +3,9 @@ const cookieParser = require('cookie-parser');
 const database = require('./config/database');
 const bodyParser = require('body-parser');
 const notifier = require('node-notifier');
+const session = require('express-session');
 const nunjucks = require('nunjucks');
+const env = require('./config/env');
 const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
@@ -19,9 +21,11 @@ nunjucks.configure('src/views', {
 
 app.use('/public', express.static(path.resolve(__dirname + '/public')));
 app.use('/uploads', express.static(path.resolve(__dirname + '/uploads')));
-app.use(cookieParser());
-app.use(bodyParser.json());
+app.use(session({ secret: env('SESSION_ID'), resave: true, saveUninitialized: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require('./routes/router'));
+app.use(bodyParser.json());
+app.use(cookieParser());
 database.init();
 dotenv.config();
 
