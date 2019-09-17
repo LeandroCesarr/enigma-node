@@ -1,5 +1,4 @@
 import axios from 'axios';
-const api = 'http://localhost:4000/admin/login'
 
 export default () => {
   const form = document.querySelector('[data-auth]');
@@ -12,10 +11,10 @@ export default () => {
     };
 
     try {
-      const response = await axios.post(api, payload);
-      console.log(response);
+      await axios.post(`${api}/admin/login`, payload);
+      window.location.href = `${api}/admin/dashboard`;
     } catch (error) {
-      console.log(error);
+      alert('Errrrou');
     }
   }
 

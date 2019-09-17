@@ -1,11 +1,13 @@
 const env = require('../config/env');
+const path = require('../config/get-full-url');
 
 module.exports = {
   index(req, res, next) {
-    res.render('admin.html');
+    res.render('admin.html', { path:  path(req)});
   },
 
   dashboard(req, res) {
+    console.log(req);
     res.render('dashboard.html');
   },
 
@@ -26,7 +28,7 @@ module.exports = {
       req.session.save();
       res.send("login success!");
     } else {
-      res.send('login failed');
+      return res.sendStatus(401);
     }
   },
 

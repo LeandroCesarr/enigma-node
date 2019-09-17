@@ -2831,7 +2831,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-var api = 'http://localhost:4000/admin/login';
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var form = document.querySelector('[data-auth]');
 
@@ -2843,7 +2842,7 @@ var api = 'http://localhost:4000/admin/login';
     _submitForm = _asyncToGenerator(
     /*#__PURE__*/
     _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-      var payload, response;
+      var payload;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2855,25 +2854,24 @@ var api = 'http://localhost:4000/admin/login';
               };
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(api, payload);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("".concat(api, "/admin/login"), payload);
 
             case 5:
-              response = _context.sent;
-              console.log(response);
-              _context.next = 12;
+              window.location.href = "".concat(api, "/admin/dashboard");
+              _context.next = 11;
               break;
 
-            case 9:
-              _context.prev = 9;
+            case 8:
+              _context.prev = 8;
               _context.t0 = _context["catch"](2);
-              console.log(_context.t0);
+              alert('Errrrou');
 
-            case 12:
+            case 11:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[2, 9]]);
+      }, _callee, null, [[2, 8]]);
     }));
     return _submitForm.apply(this, arguments);
   }
@@ -2909,8 +2907,8 @@ var api = 'http://localhost:4000/admin/login';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/novahaus-dev/Documents/Repositories/enigma-node/src/js/app.js */"./src/js/app.js");
-module.exports = __webpack_require__(/*! /Users/novahaus-dev/Documents/Repositories/enigma-node/src/scss/app.scss */"./src/scss/app.scss");
+__webpack_require__(/*! /home/leandro/Documentos/Repositories/enigma-node/src/js/app.js */"./src/js/app.js");
+module.exports = __webpack_require__(/*! /home/leandro/Documentos/Repositories/enigma-node/src/scss/app.scss */"./src/scss/app.scss");
 
 
 /***/ })
