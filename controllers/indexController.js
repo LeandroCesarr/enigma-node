@@ -7,7 +7,7 @@ const index = (req, res, next) => {
 
   res.render('index.html', {
     user: '[Pagina inicial] Vamo sair no soco e na porrada ?',
-    title: 'Ginaldim',
+    title: 'Admiravel mundo novo',
     share: {
       title: "Title",
       content: "content",

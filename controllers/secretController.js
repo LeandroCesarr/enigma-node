@@ -8,7 +8,7 @@ module.exports = {
     if (index <= parseInt(req.cookies['secret'])) {
       try {
         const secretFinded = await Secret.findOne({ id: index });
-        res.render('secret.html', { secretFinded });
+        res.render('secret.html', { secretFinded, title: secretFinded.title });
       } catch (error) {
         res.send(error);
       }
@@ -35,11 +35,13 @@ module.exports = {
   },
 
   async create(req, res) {
-    const { id, legend, answer } = req.body;
-    const { filename: image } = req.file;
+    const { id, title, typeFile, answer, tip, fontFamily, text } = req.body;
+    let image = null
+    
+    if (req.file) image = req.file.filename;
 
     try {
-      const create = await Secret.create({ id, legend, image, answer });
+      const create = await Secret.create({ id, title, typeFile, image, answer, tip, fontFamily, text});
       res.send({ create });
     } catch (error) {
       res.send(error);
