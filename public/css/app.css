@@ -34,7 +34,7 @@ body {
 
 .l-index__title {
   margin: 0 auto;
-  max-width: 28vw;
+  max-width: 400px;
 }
 
 .l-index__title img {
@@ -60,7 +60,7 @@ body {
 }
 
 .l-secret {
-  max-width: 540px;
+  max-width: 440px;
   padding: 80px 10px 0;
   margin: 0 auto;
 }
