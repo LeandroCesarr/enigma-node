@@ -21,7 +21,7 @@ nunjucks.configure('src/views', {
 
 app.use('/public', express.static(path.resolve(__dirname + '/public')));
 app.use('/uploads', express.static(path.resolve(__dirname + '/uploads')));
-app.use(session({ secret: env('SESSION_ID'), resave: true, saveUninitialized: true }));
+app.use(session({ secret: env('SESSION_ID'), resave: true, saveUninitialized: true, expires: Date.now() + (30 * 86400 * 1000) }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());

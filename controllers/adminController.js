@@ -1,14 +1,15 @@
 const env = require('../config/env');
 const path = require('../config/get-full-url');
+const Secret = require('../models/Secret');
 
 module.exports = {
   index(req, res, next) {
     res.render('admin.html', { path:  path(req)});
   },
 
-  dashboard(req, res) {
-    console.log(req);
-    res.render('dashboard.html');
+  async dashboard(req, res) {
+    const secrets = await Secret.find();
+    res.render('dashboard.html', { path: path(req), secrets});
   },
 
   auth(req, res, next) {

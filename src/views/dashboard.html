@@ -2,9 +2,46 @@
 
 {% block content %}
   <section class="l-index">
-    <div class="l-index__holder">
-      <h1 class="l-index__title">Admirável<br /> mundo novo</h1>
-      <a href="/secret/0" class="l-index__link">Começar</a>
+    <div class="l-admin">
+        {% include "partials/secrets.html" %}
+      <section class="l-admin__wpp">
+        <h2>Create</h2>
+        <form data-form="create" method="POST">
+          <fieldset>
+            <label for="id">ID (nao pode se repetir)</label>
+            <input type="number" name="id">
+          </fieldset>
+          <fieldset>
+            <label for="title">Titulo da pagina</label>
+            <input type="text" name="title">
+          </fieldset>
+          <fieldset>
+            <label for="typeFile">Tipo de arquivo (audio, image, text)</label>
+            <input type="text" name="typeFile">
+          </fieldset>
+          <fieldset>
+            <label for="image">Arquivo</label>
+            <input type="file" name="image" id="image">
+          </fieldset>
+          <fieldset>
+            <label for="text">Texto (se tipo do arquivo for text, use "&lt;br &gt;" para quebrar a linha)</label>
+            <input type="text" name="text">
+          </fieldset>
+          <fieldset>
+            <label for="family">Font Family (se tipo do arquivo for text)</label>
+            <input type="text" name="fontFamily">
+          </fieldset>
+          <fieldset>
+            <label for="answer">Resposta</label>
+            <input type="text" name="answer">
+          </fieldset>
+          <fieldset>
+            <label for="tip">Dica</label>
+            <input type="text" name="tip">
+          </fieldset>
+          <button type="submit">Criar</button>
+        </form>
+      </section>
     </div>
   </section>
 {% endblock %}
