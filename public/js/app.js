@@ -3039,28 +3039,29 @@ function admin(el) {
               e.preventDefault();
               form = new FormData(elm);
               fileInput = elm.querySelector('[name=image]');
-              form.set('image', fileInput.files[0], fileInput.files[0].name);
-              _context.prev = 4;
-              _context.next = 7;
+              console.log(elm);
+              if (fileInput && fileInput.files[0]) form.set('image', fileInput.files[0], fileInput.files[0].name);
+              _context.prev = 5;
+              _context.next = 8;
               return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(path, form);
 
-            case 7:
+            case 8:
               response = _context.sent;
               alert(response);
-              _context.next = 14;
+              _context.next = 15;
               break;
 
-            case 11:
-              _context.prev = 11;
-              _context.t0 = _context["catch"](4);
+            case 12:
+              _context.prev = 12;
+              _context.t0 = _context["catch"](5);
               alert(_context.t0);
 
-            case 14:
+            case 15:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[4, 11]]);
+      }, _callee, null, [[5, 12]]);
     }));
     return _submit.apply(this, arguments);
   }
@@ -3228,8 +3229,8 @@ function secret() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/novahaus-dev/Projects/enigma-node/src/js/app.js */"./src/js/app.js");
-module.exports = __webpack_require__(/*! /Users/novahaus-dev/Projects/enigma-node/src/scss/app.scss */"./src/scss/app.scss");
+__webpack_require__(/*! C:\Users\leand\Documents\Repositorios\enigma-node\src\js\app.js */"./src/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\leand\Documents\Repositorios\enigma-node\src\scss\app.scss */"./src/scss/app.scss");
 
 
 /***/ })

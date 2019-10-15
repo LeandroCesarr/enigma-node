@@ -47,5 +47,36 @@ module.exports = {
     } catch (error) {
       res.send(error);
     }
+  },
+
+  async update(req, res) {
+    const payload = req.body;
+    const obj = {};
+
+    if (req.file) {
+      obj['image'] = req.file.filename;
+    } else {
+      obj[req.body.type] = req.body.value
+    }
+
+    try {
+      const response = await Secret.findOneAndUpdate({ id: payload.id }, obj);
+      if (response) res.sendStatus(204).end();
+      else res.sendStatus(404).end();
+    } catch (error) {
+      res.send(error);
+    }
+  },
+
+  async delete(req, res) {
+    const payload = req.body;
+
+    try {
+      const response = await Secret.findOneAndDelete({ id: payload.id });
+      if (response) res.sendStatus(204).end();
+      else res.sendStatus(404).end();
+    } catch (error) {
+      res.send(error);
+    }
   }
 };

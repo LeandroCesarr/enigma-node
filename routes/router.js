@@ -16,6 +16,8 @@ router.get('/', index);
 router.get('/secret/:id', secret.index);
 router.get('/secret/api/check', secret.check );
 router.post('/secret/api/create', upload.single('image'), secret.create);
+router.post('/secret/api/update', upload.single('image'), secret.update);
+router.post('/secret/api/delete', secret.delete);
 router.get('/admin/dashboard', admin.dashboard);
 router.get('/admin', admin.index);
 router.post('/admin/login', admin.login);

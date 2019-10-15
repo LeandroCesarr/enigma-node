@@ -6,7 +6,8 @@ const password = env('DB_PASSWORD');
 module.exports = {
   init() {
     mongoose.connect(`mongodb+srv://${host}:${password}@cluster0-kweib.mongodb.net/test?retryWrites=true&w=majority`, {
-      useNewUrlParser: true
+      useNewUrlParser: true,
+      useFindAndModify: false
     })
 
     mongoose.connection.on('connected', () => console.log(`MongoDB connected`));

@@ -6,10 +6,13 @@ function admin(el) {
 
   async function submit(e) {
     e.preventDefault();
+    
     const form = new FormData(elm);
     const fileInput = elm.querySelector('[name=image]');
+    console.log(elm);
+    
 
-    form.set('image', fileInput.files[0], fileInput.files[0].name);
+    if (fileInput && fileInput.files[0]) form.set('image', fileInput.files[0], fileInput.files[0].name);
 
     try {
       const response = await axios.post(path, form);

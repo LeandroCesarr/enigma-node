@@ -176,6 +176,7 @@ body {
   border: 1px solid black;
   list-style: none;
   padding: 10px;
+  border-radius: 6px;
 }
 
 .l-admin__wpp li:not(:last-child) {
@@ -184,6 +185,8 @@ body {
 
 .l-admin__wpp fieldset {
   border-radius: 6px;
+  border-color: black;
+  border-width: 1px;
 }
 
 .l-admin__wpp fieldset:not(:last-child) {
@@ -193,6 +196,10 @@ body {
 .l-admin__wpp button {
   font-size: 24px;
   border-radius: 6px;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
 }
 
 .s-login {
