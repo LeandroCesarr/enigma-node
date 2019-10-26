@@ -10,6 +10,7 @@ const schema = mongoose.Schema({
   altFile: { type: String },
   answer: { type: String, required: true },
   tip: { type: String, required: true },
+  hiddenCode: { type: String },
 }, {
   timestamps: true,
 });

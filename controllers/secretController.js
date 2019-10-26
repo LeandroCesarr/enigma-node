@@ -36,13 +36,13 @@ module.exports = {
   },
 
   async create(req, res) {
-    const { id, title, typeFile, answer, tip, fontFamily, text } = req.body;
+    const { id, title, typeFile, answer, tip, fontFamily, text, hiddenCode } = req.body;
     let image = null;
 
     if (req.file) image = req.file.filename;
 
     try {
-      const create = await Secret.create({ id, title, typeFile, image, answer, tip, fontFamily, text});
+      const create = await Secret.create({ id, title, typeFile, image, answer, tip, fontFamily, text, hiddenCode});
       res.send({ create });
     } catch (error) {
       res.send(error);
